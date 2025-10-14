@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.swp
+*.tmp
+.DS_Store
+
+# Build outputs
+[Bb]uild/
+[Ll]og/
+[Tt]est[Rr]esult*/
+
+# Rider
+dotnet-tools.json
+.idea/
