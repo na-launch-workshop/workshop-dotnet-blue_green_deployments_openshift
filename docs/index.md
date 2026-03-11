@@ -80,13 +80,13 @@ image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/hello-country-servi
 
 ## 🚢 **Deploy to Knative**
 
-Update `knative-service.yaml` with your image reference (for OpenShift local registry, set `your-namespace` accordingly), then apply it:
+1. Update `knative-service.yaml` with your image reference (for OpenShift local registry, set `your-namespace` accordingly), then apply it:
 
 ```bash
 oc apply -f knative-service.yaml -n <NAMESPACE>
 ```
 
-Knative injects a `PORT` environment variable automatically; do not set one in the manifest. Override the greeting via `COUNTRY_CODE`.
+2. Knative injects a `PORT` environment variable automatically; do not set one in the manifest. Override the greeting via `COUNTRY_CODE`.
 
 Or, using the Knative CLI without modifying the YAML:
 
@@ -98,19 +98,19 @@ kn service apply hello-country-service \
   --env COUNTRY_CODE=EN
 ```
 
-Retrieve the URL:
+3. Retrieve the URL:
 
 ```bash
 kn service describe hello-country-service -o url
 ```
 
-Test the service once it is ready:
+4. Test the service once it is ready:
 
 ```bash
 curl "$(kn service describe hello-country-service -o url)"
 ```
 
-To update the greeting later, patch the service:
+5. To update the greeting later, patch the service:
 
 ```bash
 kn service update hello-country-service --env COUNTRY_CODE=FR
