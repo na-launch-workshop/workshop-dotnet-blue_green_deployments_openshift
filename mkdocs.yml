@@ -1,5 +1,5 @@
 site_name: Blue-Green Deployments
-site_description: Blue-Green Deployments
+site_description: Introduction to OpenShift blue-green deployments with Knative using a country code for a hello world .NET application
 
 nav:
   - Overview: index.md

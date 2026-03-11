@@ -1,19 +1,19 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: workshop-dotnet-blue_green_deployments_openshift
-  title: Blue-Green Deployments
+  name: workshop-dotnet-blue-green-deployments
+  title: Blue-Green Deployments - .NET
   description: |
-    Blue-Green Deployments with .NET
+    Blue-Green Deployments
   annotations:
     backstage.io/techdocs-ref: dir:.
   tags:
     - bluegreen
     - dotnet
-  links:
-    - url: https://<server>/#<repo>
-      title: "Launch from Dev Spaces"
-      icon: web
+# links:
+#    - url: https://<openshift-cluster>/#<hosted-git-repo>
+#      title: "Launch from Dev Spaces"
+#      icon: web
 spec:
   type: module
   lifecycle: production

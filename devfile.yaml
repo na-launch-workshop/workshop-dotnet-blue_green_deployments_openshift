@@ -1,0 +1,50 @@
+schemaVersion: 2.2.2
+metadata:
+  name: workshop-dotnet-blue_green_deployments_openshift
+  version: 1.0.0
+  description: DevSpaces workspace for .NET hello country app
+attributes:
+  che-editor: vscode
+components:
+  - name: tools
+    container:
+      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest
+      endpoints:
+        - exposure: public
+          name: hello-by-lang
+          protocol: https
+          targetPort: 8080
+          path: /
+      cpuLimit: '2'
+      cpuRequest: '500m'
+      memoryLimit: '4Gi'
+      memoryRequest: '2Gi'
+      mountSources: true
+commands:
+  - id: 1-restore
+    exec:
+      label: "1. Restore dependencies"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "dotnet restore"
+      group:
+        kind: build
+        isDefault: true
+  - id: 2-test
+    exec:
+      label: "2. Run tests"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "dotnet test"
+      group:
+        kind: test
+        isDefault: true
+  - id: 3-run
+    exec:
+      label: "3. Start development server"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "dotnet run"
+      group:
+        kind: run
+        isDefault: true

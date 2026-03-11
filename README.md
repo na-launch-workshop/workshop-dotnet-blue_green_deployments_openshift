@@ -1,15 +1,25 @@
-# Hello Country Service (.NET)
+# 🚀 **Module: .NET Hello Country Service**
+
+**Technology Stack:**
+
+- Knative
+- .NET
+
+---
+
+## 🎯 **Scenario**
 
 Minimal ASP.NET Core service that returns a phonetic "Hello World" greeting for a configured country code. The app loads configuration from environment variables (via DotNetEnv for local development) and supports deployment to Knative, mirroring the Node.js sample.
 
-## Local Development
+## ✏️  **Local Development**
 
+1. Run the application
 ```bash
 dotnet restore
 dotnet watch run
 ```
 
-Set the greeting by updating `.env` or exporting variables before running:
+2. Set the greeting by updating `.env` or exporting variables before running:
 
 ```bash
 export COUNTRY_CODE=GA
@@ -19,9 +29,12 @@ dotnet run
 
 The service listens on `PORT` (default `3000`) and responds with the greeting JSON at `/`.
 
-## Container Build
+## 🔨 **Container Build**
+
+Select the option that is most appropriate:
 
 ### Generic Registry
+
 ```bash
 # Replace <registry>/<repo> with your container registry path
 IMAGE=<REGISTRY>/<REPOSITORY>/hello-country-service:latest
@@ -34,6 +47,7 @@ podman push "$IMAGE"
 ```
 
 ### OpenShift Local Registry (external route)
+
 ```bash
 oc project <NAMESPACE>
 REGISTRY=$(oc registry info)
@@ -44,6 +58,7 @@ podman push "$IMAGE"
 ```
 
 ### Build Inside OpenShift (BuildConfig)
+
 ```bash
 # Point to the project that should own the image
 oc project <NAMESPACE>
@@ -63,7 +78,7 @@ The successful build publishes the image at:
 image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/hello-country-service:latest
 ```
 
-## Deploy to Knative
+## 🚢 **Deploy to Knative**
 
 Update `knative-service.yaml` with your image reference (for OpenShift local registry, set `your-namespace` accordingly), then apply it:
 
