@@ -4,7 +4,7 @@ metadata:
   name: workshop-dotnet-blue-green-deployments
   title: Blue-Green Deployments - .NET
   description: |
-    Blue-Green Deployments
+    Blue-Green Deployments with .NET
   annotations:
     backstage.io/techdocs-ref: dir:.
   tags:

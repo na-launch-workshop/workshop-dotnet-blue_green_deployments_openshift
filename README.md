@@ -67,7 +67,6 @@ podman push "$IMAGE"
 
 ### Build Inside OpenShift (BuildConfig)
 
-
 ```bash
 # Point to the project that should own the image
 oc project <NAMESPACE>
