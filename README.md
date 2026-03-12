@@ -11,6 +11,8 @@
 
 Minimal ASP.NET Core service that returns a phonetic "Hello World" greeting for a configured country code. The app loads configuration from environment variables (via DotNetEnv for local development) and supports deployment to Knative, mirroring the Node.js sample.
 
+---
+
 ## ✏️  **Local Development**
 
 1. Run the application
@@ -29,6 +31,8 @@ dotnet run
 
 The service listens on `PORT` (default `3000`) and responds with the greeting JSON at `/`.
 
+---
+
 ## 🔨 **Container Build**
 
 Select the option that is most appropriate:
@@ -46,6 +50,8 @@ podman push "$IMAGE"
 # or: docker push "$IMAGE"
 ```
 
+---
+
 ### OpenShift Local Registry (external route)
 
 ```bash
@@ -57,7 +63,10 @@ podman build -t "$IMAGE" .
 podman push "$IMAGE"
 ```
 
+---
+
 ### Build Inside OpenShift (BuildConfig)
+
 
 ```bash
 # Point to the project that should own the image
@@ -77,6 +86,8 @@ The successful build publishes the image at:
 ```
 image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/hello-country-service:latest
 ```
+
+---
 
 ## 🚢 **Deploy to Knative**
 
